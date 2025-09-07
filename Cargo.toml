@@ -94,3 +94,4 @@ codegen-units = 1
 [patch.crates-io]
 libc = { git = 'https://github.com/jonas-lindmark/libc.git', branch = 'm68k_0.2.174' }
 libffi-sys = { git = 'https://github.com/jonas-lindmark/libffi-rs.git', branch = 'm68k_netbsd_3.3.2' }
+cc = { git = 'https://github.com/jonas-lindmark/cc-rs.git', branch = 'm68k_netbsd_1.2.16' }
