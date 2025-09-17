@@ -463,8 +463,7 @@ version = "0.1.0"
 [[package]]
 name = "cc"
 version = "1.2.16"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "be714c154be609ec7f5dad223a33bf1482fff90472de28f7362806e6d4832b8c"
+source = "git+https://github.com/jonas-lindmark/cc-rs.git?branch=m68k_netbsd_1.2.16#3e508d3bd5e8263e50dd4099ccf1e9b1cc677aa1"
 dependencies = [
  "jobserver",
  "libc",
