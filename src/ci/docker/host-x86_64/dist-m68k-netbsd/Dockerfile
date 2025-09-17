@@ -20,7 +20,9 @@ ENV \
     CC_m68k_unknown_netbsd=m68k--netbsd-gcc \
     CXX_m68k_unknown_netbsd=m68k--netbsd-g++
 
-ENV HOSTS=m68k-unknown-netbsd
+ENV HOST=x86_64-unknown-netbsd
+ENV TARGET=m68k-unknown-netbsd
+
 
 ENV RUST_CONFIGURE_ARGS --enable-extended --disable-docs
-ENV SCRIPT python3 ../x.py dist --host $HOSTS --target $HOSTS
+ENV SCRIPT python3 ../x.py dist --host $HOST --target $TARGET
