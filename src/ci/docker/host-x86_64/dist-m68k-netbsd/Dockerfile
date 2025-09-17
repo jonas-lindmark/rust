@@ -17,8 +17,8 @@ ENV PATH=$PATH:/x-tools/x86_64-unknown-netbsd/bin
 
 ENV \
     AR_m68k_unknown_netbsd=m68k--netbsdelf-ar \
-    CC_m68k_unknown_netbsd=m68k--netbsd-gcc \
-    CXX_m68k_unknown_netbsd=m68k--netbsd-g++
+    CC_m68k_unknown_netbsd=m68k--netbsd-gcc-sysroot \
+    CXX_m68k_unknown_netbsd=m68k--netbsd-g++-sysroot
 
 ENV HOST=x86_64-unknown-netbsd
 ENV TARGET=m68k-unknown-netbsd
