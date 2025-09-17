@@ -279,6 +279,9 @@ auto:
   - name: dist-x86_64-netbsd
     <<: *job-linux-4c
 
+  - name: dist-m68k-netbsd
+    <<: *job-linux-4c
+
   - name: dist-x86_64-solaris
     <<: *job-linux-4c
 
