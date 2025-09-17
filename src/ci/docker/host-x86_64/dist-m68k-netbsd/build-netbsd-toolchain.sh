@@ -69,8 +69,7 @@ cd usr/src
 # * disable various unneeded stuff
 MKUNPRIVED=yes TOOLDIR=/x-tools/m68k-unknown-netbsd \
 MKSHARE=no MKDOC=no MKHTML=no MKINFO=no MKKMOD=no MKLINT=no MKMAN=no MKNLS=no MKPROFILE=no \
-./build.sh -j10 -m mac68k tools
-#hide_output ./build.sh -j10 -m mac68k tools
+hide_output ./build.sh -j10 -m mac68k tools
 
 cd ../..
 
