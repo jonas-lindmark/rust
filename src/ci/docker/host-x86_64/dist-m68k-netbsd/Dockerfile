@@ -16,11 +16,11 @@ RUN sh /scripts/sccache.sh
 ENV PATH=$PATH:/x-tools/x86_64-unknown-netbsd/bin
 
 ENV \
-    AR_x86_64_unknown_netbsd=x86_64--netbsd-ar \
-    CC_x86_64_unknown_netbsd=x86_64--netbsd-gcc-sysroot \
-    CXX_x86_64_unknown_netbsd=x86_64--netbsd-g++-sysroot
+    AR_m68k_unknown_netbsd=m68k--netbsdelf-ar \
+    CC_m68k_unknown_netbsd=m68k--netbsd-gcc \
+    CXX_m68k_unknown_netbsd=m68k--netbsd-g++
 
-ENV HOSTS=x86_64-unknown-netbsd
+ENV HOSTS=m68k-unknown-netbsd
 
 ENV RUST_CONFIGURE_ARGS --enable-extended --disable-docs
 ENV SCRIPT python3 ../x.py dist --host $HOSTS --target $HOSTS
