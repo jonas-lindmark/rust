@@ -38,6 +38,7 @@ const STAGE0_MISSING_TARGETS: &[&str] = &[
     // just a dummy comment so the list doesn't get onelined
     "aarch64_be-unknown-hermit",
     "aarch64_be-unknown-none-softfloat",
+    "m68k-unknown-netbsd"
 ];
 
 /// Minimum version threshold for libstdc++ required when using prebuilt LLVM
