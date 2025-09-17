@@ -69,6 +69,10 @@ cd usr/src
 # * disable various unneeded stuff
 MKUNPRIVED=yes TOOLDIR=/x-tools/m68k-unknown-netbsd \
 MKSHARE=no MKDOC=no MKHTML=no MKINFO=no MKKMOD=no MKLINT=no MKMAN=no MKNLS=no MKPROFILE=no \
+hide_output ./build.sh -j10 -m amd64 tools
+
+MKUNPRIVED=yes TOOLDIR=/x-tools/m68k-unknown-netbsd \
+MKSHARE=no MKDOC=no MKHTML=no MKINFO=no MKKMOD=no MKLINT=no MKMAN=no MKNLS=no MKPROFILE=no \
 hide_output ./build.sh -j10 -m mac68k tools
 
 cd ../..
@@ -91,5 +95,5 @@ GPP_SHA1=`sha1sum -b /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-g++ | cut -d'
 echo "# $GCC_SHA1" >> /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-gcc-sysroot
 echo "# $GPP_SHA1" >> /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-g++-sysroot
 
-chmod +x /x-tools/m68k-unknown-netbsd/bin/x86_64--netbsd-gcc-sysroot
-chmod +x /x-tools/m68k-unknown-netbsd/bin/x86_64--netbsd-g++-sysroot
+chmod +x /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-gcc-sysroot
+chmod +x /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-g++-sysroot
