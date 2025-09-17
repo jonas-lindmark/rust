@@ -13,7 +13,7 @@ RUN env HOST_CFLAGS="-O -fcommon" /tmp/build-netbsd-toolchain.sh
 COPY scripts/sccache.sh /scripts/
 RUN sh /scripts/sccache.sh
 
-ENV PATH=$PATH:/x-tools/x86_64-unknown-netbsd/bin
+ENV PATH=$PATH:/x-tools/m68k-unknown-netbsd/bin
 
 ENV \
     AR_m68k_unknown_netbsd=m68k--netbsdelf-ar \
