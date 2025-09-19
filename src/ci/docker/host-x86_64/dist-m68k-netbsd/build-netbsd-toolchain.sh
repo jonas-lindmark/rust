@@ -81,16 +81,16 @@ rm -rf usr
 
 cat > /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-gcc-sysroot <<'EOF'
 #!/usr/bin/env bash
-exec /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-gcc --sysroot=/x-tools/m68k-unknown-netbsd/sysroot "$@"
+exec /x-tools/m68k-unknown-netbsd/bin/m68k--netbsdelf-gcc --sysroot=/x-tools/m68k-unknown-netbsd/sysroot "$@"
 EOF
 
 cat > /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-g++-sysroot <<'EOF'
 #!/usr/bin/env bash
-exec /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-g++ --sysroot=/x-tools/m68k-unknown-netbsd/sysroot "$@"
+exec /x-tools/m68k-unknown-netbsd/bin/m68k--netbsdelf-g++ --sysroot=/x-tools/m68k-unknown-netbsd/sysroot "$@"
 EOF
 
-GCC_SHA1=`sha1sum -b /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-gcc | cut -d' ' -f1`
-GPP_SHA1=`sha1sum -b /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-g++ | cut -d' ' -f1`
+GCC_SHA1=`sha1sum -b /x-tools/m68k-unknown-netbsd/bin/m68k--netbsdelf-gcc | cut -d' ' -f1`
+GPP_SHA1=`sha1sum -b /x-tools/m68k-unknown-netbsd/bin/m68k--netbsdelf-g++ | cut -d' ' -f1`
 
 echo "# $GCC_SHA1" >> /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-gcc-sysroot
 echo "# $GPP_SHA1" >> /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-g++-sysroot
