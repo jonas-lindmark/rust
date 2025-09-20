@@ -92,6 +92,6 @@ codegen-units = 1
 # If you want to use a crate with local modifications, you can set a path or git dependency here.
 # For git dependencies, also add your source to ALLOWED_SOURCES in src/tools/tidy/src/extdeps.rs.
 [patch.crates-io]
-libc = { git = 'https://github.com/jonas-lindmark/libc.git', branch = 'netbsd_m68k' }
-libffi-sys = { git = 'https://github.com/jonas-lindmark/libffi-rs.git', branch = 'netbsd_m68k' }
-cc = { git = 'https://github.com/jonas-lindmark/cc-rs.git', branch = 'netbsd_m68k' }
+libc = { git = 'https://github.com/jonas-lindmark/libc.git', branch = 'm68k_0.2.174' }
+libffi-sys = { git = 'https://github.com/jonas-lindmark/libffi-rs.git', branch = 'm68k_netbsd_3.3.2' }
+cc = { git = 'https://github.com/jonas-lindmark/cc-rs.git', branch = 'm68k_netbsd_1.2.16' }
