@@ -39,7 +39,8 @@ download() {
 mkdir netbsd
 cd netbsd
 
-mkdir -p /x-tools/m68k-unknown-netbsd/sysroot
+mkdir -p /x-tools/m68k-unknown-netbsd/sysroot-x86_64
+mkdir -p /x-tools/m68k-unknown-netbsd/sysroot-m68k
 
 # Hashes come from https://cdn.netbsd.org/pub/NetBSD/security/hashes/NetBSD-9.0_hashes.asc
 SRC_SHA=2c791ae009a6929c6fc893ec5df7e62910ee8207e0b2159d6937309c03efe175b6ae1e445829a13d041b6851334ad35c521f2fa03c97675d4a05f1fafe58ede0
@@ -55,11 +56,18 @@ download gnusrc.tgz "$SOURCE_URL-gnusrc.tgz" "$GNUSRC_SHA" tar xzf gnusrc.tgz
 download sharesrc.tgz "$SOURCE_URL-sharesrc.tgz" "$SHARESRC_SHA" tar xzf sharesrc.tgz
 download syssrc.tgz "$SOURCE_URL-syssrc.tgz" "$SYSSRC_SHA" tar xzf syssrc.tgz
 
-BINARY_URL=https://ci-mirrors.rust-lang.org/rustc/2025-03-14-netbsd-9.0-amd64-binary
-download base.tar.xz "$BINARY_URL-base.tar.xz" "$BASE_SHA" \
-  tar xJf base.tar.xz -C /x-tools/m68k-unknown-netbsd/sysroot ./usr/include ./usr/lib ./lib
-download comp.tar.xz "$BINARY_URL-comp.tar.xz" "$COMP_SHA" \
-  tar xJf comp.tar.xz -C /x-tools/m68k-unknown-netbsd/sysroot ./usr/include ./usr/lib
+X86_64_BINARY_URL=https://ci-mirrors.rust-lang.org/rustc/2025-03-14-netbsd-9.0-amd64-binary
+download base.tar.xz "$X86_64_BINARY_URL-base.tar.xz" "$BASE_SHA" \
+  tar xJf base.tar.xz -C /x-tools/m68k-unknown-netbsd/sysroot-x86_64 ./usr/include ./usr/lib ./lib
+download comp.tar.xz "$X86_64_BINARY_URL-comp.tar.xz" "$COMP_SHA" \
+  tar xJf comp.tar.xz -C /x-tools/m68k-unknown-netbsd/sysroot-x86_64 ./usr/include ./usr/lib
+
+
+M68K_BINARY_URL=https://archive.netbsd.org/pub/NetBSD-archive/NetBSD-9.0/mac68k/binary/sets
+download base.tar.xz "$M68K_BINARY_URL/base.tgz" "$BASE_SHA" \
+  tar xzf base.tar.xz -C /x-tools/m68k-unknown-netbsd/sysroot-m68k ./usr/include ./usr/lib ./lib
+download comp.tar.xz "$M68K_BINARY_URL/comp.tgz" "$COMP_SHA" \
+  tar xzf comp.tar.xz -C /x-tools/m68k-unknown-netbsd/sysroot-m68k ./usr/include ./usr/lib
 
 cd usr/src
 
@@ -81,12 +89,12 @@ rm -rf usr
 
 cat > /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-gcc-sysroot <<'EOF'
 #!/usr/bin/env bash
-exec /x-tools/m68k-unknown-netbsd/bin/m68k--netbsdelf-gcc --sysroot=/x-tools/m68k-unknown-netbsd/sysroot "$@"
+exec /x-tools/m68k-unknown-netbsd/bin/m68k--netbsdelf-gcc --sysroot=/x-tools/m68k-unknown-netbsd/sysroot-m68k "$@"
 EOF
 
 cat > /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-g++-sysroot <<'EOF'
 #!/usr/bin/env bash
-exec /x-tools/m68k-unknown-netbsd/bin/m68k--netbsdelf-g++ --sysroot=/x-tools/m68k-unknown-netbsd/sysroot "$@"
+exec /x-tools/m68k-unknown-netbsd/bin/m68k--netbsdelf-g++ --sysroot=/x-tools/m68k-unknown-netbsd/sysroot-m68k "$@"
 EOF
 
 GCC_SHA1=`sha1sum -b /x-tools/m68k-unknown-netbsd/bin/m68k--netbsdelf-gcc | cut -d' ' -f1`
@@ -101,12 +109,12 @@ chmod +x /x-tools/m68k-unknown-netbsd/bin/m68k--netbsd-g++-sysroot
 
 cat > /x-tools/m68k-unknown-netbsd/bin/x86_64--netbsd-gcc-sysroot <<'EOF'
 #!/usr/bin/env bash
-exec /x-tools/m68k-unknown-netbsd/bin/x86_64--netbsd-gcc --sysroot=/x-tools/m68k-unknown-netbsd/sysroot "$@"
+exec /x-tools/m68k-unknown-netbsd/bin/x86_64--netbsd-gcc --sysroot=/x-tools/m68k-unknown-netbsd/sysroot-x86_64 "$@"
 EOF
 
 cat > /x-tools/m68k-unknown-netbsd/bin/x86_64--netbsd-g++-sysroot <<'EOF'
 #!/usr/bin/env bash
-exec /x-tools/m68k-unknown-netbsd/bin/x86_64--netbsd-g++ --sysroot=/x-tools/m68k-unknown-netbsd/sysroot "$@"
+exec /x-tools/m68k-unknown-netbsd/bin/x86_64--netbsd-g++ --sysroot=/x-tools/m68k-unknown-netbsd/sysroot-x86_64 "$@"
 EOF
 
 GCC_SHA1=`sha1sum -b /x-tools/m68k-unknown-netbsd/bin/x86_64--netbsd-gcc | cut -d' ' -f1`
