@@ -139,9 +139,8 @@ dependencies = [
 
 [[package]]
 name = "libc"
-version = "0.2.175"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6a82ae493e598baaea5209805c49bbf2ea7de956d50d7da0da1164f9c6d28543"
+version = "0.2.174"
+source = "git+https://github.com/jonas-lindmark/libc.git?branch=m68k_0.2.174#38c162ddab5ce2d8385809c41d800af394ca309f"
 dependencies = [
  "rustc-std-workspace-core",
 ]
