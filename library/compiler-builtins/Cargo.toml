@@ -53,3 +53,6 @@ lto = "fat"
 [profile.bench]
 # Required for iai-callgrind
 debug = true
+
+[patch.crates-io]
+libc = { git = 'https://github.com/jonas-lindmark/libc.git', branch = 'm68k_0.2.174' }
