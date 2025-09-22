@@ -258,6 +258,7 @@ fn main() {
         && !target.contains("freebsd")
         && !target.contains("ohos"))
         || target.starts_with("mips-")
+        || target.starts_with("m68k-")
         || target.starts_with("mipsel-")
         || target.starts_with("powerpc-")
         || target.starts_with("sparc-")
