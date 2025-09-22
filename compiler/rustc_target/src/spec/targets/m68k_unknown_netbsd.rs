@@ -19,7 +19,7 @@ pub(crate) fn target() -> Target {
             std: Some(true),
         },
         pointer_width: 32,
-        data_layout: "E-m:e-p:32:16:32-i8:8:8-i16:16:16-i32:16:32-n8:16:32-a:0:16-S16".into(),
+        data_layout: "E-m:e-p:32:32-Fn32-i64:64-n32".into(),
         arch: "m68k".into(),
         options: TargetOptions { endian: Endian::Big, mcount: "__mcount".into(), ..base },
     }
