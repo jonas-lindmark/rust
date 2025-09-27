@@ -6,7 +6,7 @@ use crate::spec::{
 
 pub(crate) fn target() -> Target {
     let mut base = base::netbsd::opts();
-    base.add_pre_link_args(LinkerFlavor::Gnu(Cc::Yes, Lld::No), &["-m68030"]);
+    base.add_pre_link_args(LinkerFlavor::Gnu(Cc::Yes, Lld::No), &["-fPIC"]);
     base.max_atomic_width = Some(32);
     base.stack_probes = StackProbeType::Inline;
 
