@@ -1139,9 +1139,6 @@ class RustBuild(object):
         if "RUSTFLAGS_BOOTSTRAP" in env:
             env["RUSTFLAGS"] += " " + env["RUSTFLAGS_BOOTSTRAP"]
 
-        if self.build_triple().startswith('m68k'):
-            env["RUSTFLAGS"] += " -Cllvm-args=-mxgot"
-
         if not os.path.isfile(self.cargo()):
             raise Exception("no cargo executable found at `{}`".format(self.cargo()))
         args = [
