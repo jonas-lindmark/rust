@@ -6,7 +6,7 @@ pub(crate) fn target() -> Target {
     let mut base = base::netbsd::opts();
     base.add_pre_link_args(
         LinkerFlavor::Gnu(Cc::Yes, Lld::No),
-        &["-mxgot", "--verbose"],
+        &["-mxgot", "-mcmodel=large", "--verbose"],
     );
     base.max_atomic_width = Some(32);
     base.cpu = "M68020".into();
@@ -26,6 +26,8 @@ pub(crate) fn target() -> Target {
         options: TargetOptions {
             endian: Endian::Big,
             code_model: Some(CodeModel::Large),
-            mcount: "__mcount".into(), ..base },
+            mcount: "__mcount".into(),
+            ..base
+        },
     }
 }
