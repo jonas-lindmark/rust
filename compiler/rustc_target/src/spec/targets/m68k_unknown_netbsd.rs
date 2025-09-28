@@ -1,7 +1,7 @@
 use rustc_abi::Endian;
 
 use crate::spec::{
-    Cc, LinkerFlavor, Lld, StackProbeType, Target, TargetMetadata, TargetOptions, base,
+    base, cvs, Cc, LinkerFlavor, Lld, StackProbeType, Target, TargetMetadata, TargetOptions,
 };
 
 pub(crate) fn target() -> Target {
@@ -21,6 +21,11 @@ pub(crate) fn target() -> Target {
         pointer_width: 32,
         data_layout: "E-m:e-p:32:16:32-i8:8:8-i16:16:16-i32:16:32-n8:16:32-a:0:32-S32".into(),
         arch: "m68k".into(),
-        options: TargetOptions { endian: Endian::Big, mcount: "__mcount".into(), ..base },
+        options: TargetOptions {
+            endian: Endian::Big,
+            llvm_args: cvs!["-mxgot"],
+            mcount: "__mcount".into(),
+            ..base
+        },
     }
 }
