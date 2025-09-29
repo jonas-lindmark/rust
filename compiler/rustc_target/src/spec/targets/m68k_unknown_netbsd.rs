@@ -25,7 +25,7 @@ pub(crate) fn target() -> Target {
         arch: "m68k".into(),
         options: TargetOptions {
             endian: Endian::Big,
-            code_model: Some(CodeModel::Large),
+            code_model: Some(CodeModel::Medium),
             mcount: "__mcount".into(),
             ..base
         },
