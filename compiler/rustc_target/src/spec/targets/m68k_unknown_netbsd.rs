@@ -4,13 +4,10 @@ use crate::spec::{base, Cc, CodeModel, LinkerFlavor, Lld, StackProbeType, Target
 
 pub(crate) fn target() -> Target {
     let mut base = base::netbsd::opts();
-    /*
     base.add_pre_link_args(
         LinkerFlavor::Gnu(Cc::Yes, Lld::No),
         &["-mxgot","-m68020", "--verbose"],
     );
-     */
-    base.linker_flavor = LinkerFlavor::Gnu(Cc::No, Lld::Yes);
     base.max_atomic_width = Some(32);
     base.cpu = "M68020".into();
     base.stack_probes = StackProbeType::Inline;
