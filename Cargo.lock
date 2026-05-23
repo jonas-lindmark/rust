@@ -2214,9 +2214,8 @@ checksum = "9fa0e2a1fcbe2f6be6c42e342259976206b383122fc152e872795338b5a3f3a7"
 
 [[package]]
 name = "libc"
-version = "0.2.183"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b5b646652bf6661599e1da8901b3b9522896f01e736bad5f723fe7a3a27f899d"
+version = "0.2.185"
+source = "git+https://github.com/jonas-lindmark/libc.git?branch=m68k_0.2.185#b60c813dacb92078d5710d47aa062c37fb1890bb"
 
 [[package]]
 name = "libffi"
@@ -7054,8 +7053,3 @@ name = "zlib-rs"
 version = "0.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3be3d40e40a133f9c916ee3f9f4fa2d9d63435b5fbe1bfc6d9dae0aa0ada1513"
-
-[[patch.unused]]
-name = "libc"
-version = "0.2.185"
-source = "git+https://github.com/jonas-lindmark/libc.git?branch=m68k_0.2.185#b60c813dacb92078d5710d47aa062c37fb1890bb"
