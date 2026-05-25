@@ -1,12 +1,16 @@
 use rustc_abi::Endian;
 
-use crate::spec::{Cc, LinkerFlavor, Lld, StackProbeType, Target, TargetMetadata, TargetOptions, base, Arch};
+use crate::spec::{Cc, LinkerFlavor, Lld, StackProbeType, Target, TargetMetadata, TargetOptions, base, Arch, RelocModel, CodeModel};
 
 pub(crate) fn target() -> Target {
     let mut base = base::netbsd::opts();
     base.add_pre_link_args(LinkerFlavor::Gnu(Cc::Yes, Lld::No), &[]);
+    base.cpu = "M68020".into();
     base.max_atomic_width = Some(32);
     base.stack_probes = StackProbeType::Inline;
+
+    base.relocation_model = RelocModel::Pic;
+    base.code_model = Some(CodeModel::Medium);
 
     Target {
         llvm_target: "m68k-unknown-netbsd".into(),
