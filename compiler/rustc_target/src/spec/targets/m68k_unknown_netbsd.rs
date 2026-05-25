@@ -1,6 +1,6 @@
 use rustc_abi::Endian;
 
-use crate::spec::{Cc, LinkerFlavor, Lld, StackProbeType, Target, TargetMetadata, TargetOptions, base, Arch, RelocModel, CodeModel};
+use crate::spec::{Cc, LinkerFlavor, Lld, StackProbeType, Target, TargetMetadata, TargetOptions, base, Arch, RelocModel, CodeModel, LinkSelfContainedDefault};
 
 pub(crate) fn target() -> Target {
     let mut base = base::netbsd::opts();
@@ -23,6 +23,13 @@ pub(crate) fn target() -> Target {
         pointer_width: 32,
         data_layout: "E-m:e-p:32:16:32-i8:8:8-i16:16:16-i32:16:32-n8:16:32-a:0:16-S16".into(),
         arch: Arch::M68k,
-        options: TargetOptions { endian: Endian::Big, mcount: "__mcount".into(), ..base },
+        options: TargetOptions {
+            endian: Endian::Big,
+            mcount: "_mcount".into(),
+
+            // LLD currently does not have support for M68k
+            link_self_contained: LinkSelfContainedDefault::False,
+            ..base
+        },
     }
 }
