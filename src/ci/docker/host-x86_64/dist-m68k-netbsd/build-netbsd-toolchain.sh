@@ -42,7 +42,6 @@ cd netbsd
 mkdir -p /x-tools/m68k-unknown-netbsd/sysroot-x86_64
 mkdir -p /x-tools/m68k-unknown-netbsd/sysroot-m68k
 
-# Hashes come from https://nycdn.netbsd.org/pub/NetBSD-daily/netbsd-11/20250924123913Z/source/sets/SHA512 etc.
 SRC_SHA=c238f6180ae7c89106cbb20560fe9c058d0f646b50ef17f72fc01cdb3bf0f28974b526f977971b430de911f7e5867f07859534541c61452aba1b726af2483ae5
 GNUSRC_SHA=41bf4ba82eac752ca689e0fdc23e419af776c59af259823d9d13c03079a9703a182cc172d08b1c46249cf5193d2afbdfc405b5a6dfa573d7bf9aba59c2529799
 SHARESRC_SHA=aaab14cd74824cc9b6c96c10131e9c6117858fe12b7b594570340528611b1a2f8457a71e86c2375fbe4d9413cdf706a920a4789efd9cee1b75a360f31a21be12
