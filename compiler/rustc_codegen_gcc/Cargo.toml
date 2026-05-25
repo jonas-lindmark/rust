@@ -50,3 +50,6 @@ debug = false
 
 [package.metadata.rust-analyzer]
 rustc_private = true
+
+[patch.crates-io]
+libc = { git = 'https://github.com/jonas-lindmark/libc.git', branch = 'm68k_0.2.186' }

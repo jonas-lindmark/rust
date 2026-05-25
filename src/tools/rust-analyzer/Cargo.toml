@@ -48,6 +48,8 @@ debug = 2
 # salsa-macros = { path = "../salsa/components/salsa-macros" }
 # salsa-macro-rules = { path = "../salsa/components/salsa-macro-rules" }
 
+libc = { git = 'https://github.com/jonas-lindmark/libc.git', branch = 'm68k_0.2.186' }
+
 [workspace.dependencies]
 # local crates
 macros = { path = "./crates/macros", version = "0.0.0" }
@@ -241,3 +243,4 @@ print_stderr = "warn"
 
 rc_buffer = "warn"
 str_to_string = "warn"
+

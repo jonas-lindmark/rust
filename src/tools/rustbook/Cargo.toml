@@ -14,3 +14,6 @@ mdbook-i18n-helpers = "0.4.0"
 mdbook-spec = { path = "../../doc/reference/tools/mdbook-spec" }
 mdbook-trpl = { path = "../../doc/book/packages/mdbook-trpl" }
 tracing-subscriber = { version = "0.3.20", features = ["env-filter"] }
+
+[patch.crates-io]
+libc = { git = 'https://github.com/jonas-lindmark/libc.git', branch = 'm68k_0.2.186' }

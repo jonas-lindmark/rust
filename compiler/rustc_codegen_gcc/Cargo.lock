@@ -117,9 +117,8 @@ dependencies = [
 
 [[package]]
 name = "libc"
-version = "0.2.168"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5aaeb2981e0606ca11d79718f8bb01164f1d6ed75080182d3abf017e6d244b6d"
+version = "0.2.186"
+source = "git+https://github.com/jonas-lindmark/libc.git?branch=m68k_0.2.186#484726eb0fb494e33571366e897b8f6b15d67a2d"
 
 [[package]]
 name = "linux-raw-sys"
