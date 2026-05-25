@@ -43,28 +43,28 @@ mkdir -p /x-tools/m68k-unknown-netbsd/sysroot-x86_64
 mkdir -p /x-tools/m68k-unknown-netbsd/sysroot-m68k
 
 # Hashes come from https://nycdn.netbsd.org/pub/NetBSD-daily/netbsd-11/20250924123913Z/source/sets/SHA512 etc.
-SRC_SHA=4934fee580f48485f8fa78601af6bc4d07498ae6d2877acb6de4add3f1bd3f0e0cf075b076dd411c23416ad20a9c2ae91ec96e87a06f9572d72f872f8b8ea958
-GNUSRC_SHA=19cc8a45ff3f64e75a1d1fd059cbb9b654ffed287fbcc5dc89a9e9ab67e6ac18a4670d9f0c5a389e3bdacab1dd4c2f11c47ec3b8eef7cb511e5994366f6d59a1
-SHARESRC_SHA=ae1c2e557821679dc4179b6b5d4e1379dcc30b040116693a58f403c9d9b8c30704220262deab1f9db680538d7bded66c3a4f2b6889025827f6212fb1cf59fdd5
-SYSSRC_SHA=405a7743badf2382d329376a50a15ef5e22ecea18c649cfff7efacd274b6f93c8756953c993dfbcba94fafa6ff21ba191b6c35dad71df8e22122a9a1d3d3ebd1
-BASE_SHA_X86_64=711f08ce985d6eada683eb9e410b18116257d765193fa93d5c2c63e040398a554db26598e6ff861337312a15891c59034077e817f84d10347130c61fb36c6387
-COMP_SHA_X86_64=defc2599863430c18435097c020f550c1920e9c62d3ab82c07815cffa38411785fb6a2a5bfa604e091afe377dd67c9ae09770fb1337d74cc76efff2b29f474c3
-BASE_SHA_M68K=55f55b1f14e59215f25cc15a7546ee20d226eeefd3310af205736d7ca3bf59956c2cf2891708c7c29b83f376c658c88c2f8cc13def01c762a271aace9525a519
-COMP_SHA_M68K=5a894a9f06030577ff7ed3e6fcf573177cd23848713669101a82a3af5597c1044834d7844e46e84a4d3dc8f7ebd54e10e3bbcae0e4100536b187c132e1799c9a
+SRC_SHA=c238f6180ae7c89106cbb20560fe9c058d0f646b50ef17f72fc01cdb3bf0f28974b526f977971b430de911f7e5867f07859534541c61452aba1b726af2483ae5
+GNUSRC_SHA=41bf4ba82eac752ca689e0fdc23e419af776c59af259823d9d13c03079a9703a182cc172d08b1c46249cf5193d2afbdfc405b5a6dfa573d7bf9aba59c2529799
+SHARESRC_SHA=aaab14cd74824cc9b6c96c10131e9c6117858fe12b7b594570340528611b1a2f8457a71e86c2375fbe4d9413cdf706a920a4789efd9cee1b75a360f31a21be12
+SYSSRC_SHA=7ad9917c3936c8d72b185364b91b3beb00a945001e3a416436880ea14682ff00958590966c0e79e86ca36b9918670da77cef1e5c7f38945388a581925c04bd30
+BASE_SHA_X86_64=a991d532cc208348870ba40b7742009d142668e3f073cb4cf9feac3bb90dc6b145c897ff73ecbff686986fbc0b66837aa4780a33d67e979aba5ebcca10b5a7d4
+COMP_SHA_X86_64=eb863ab9abfcb780b27aac0f7866d50c957be97797c6c8dd41252c59602b75834f700e64aa4e46d215fdfd978a9c3892092135029cbe112e7c20c4f69d08b1e1
+BASE_SHA_M68K=bc9076e204ced918fb6dc9408e284c5d890a8c8a36981528950003a3143ea62881d331324fdb4529b65a4b1e646564424f5d905da3f328af2c6c6cfd9e8b92dc
+COMP_SHA_M68K=b17c4b752a696db9557d9667b8bfca14cfe1b3e40aaa313dff2d680a0571cf0394b18fbea0870a00ebdff8289a6d6a633c06c1efadc8d948990e79038bcd5b51
 
-SOURCE_URL=https://cdn.netbsd.org/pub/NetBSD/NetBSD-9.4/source/sets/
+SOURCE_URL=https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0_RC4/source/sets/
 download src.tgz "$SOURCE_URL/src.tgz" "$SRC_SHA" tar xzf src.tgz
 download gnusrc.tgz "$SOURCE_URL/gnusrc.tgz" "$GNUSRC_SHA" tar xzf gnusrc.tgz
 download sharesrc.tgz "$SOURCE_URL/sharesrc.tgz" "$SHARESRC_SHA" tar xzf sharesrc.tgz
 download syssrc.tgz "$SOURCE_URL/syssrc.tgz" "$SYSSRC_SHA" tar xzf syssrc.tgz
 
-X86_64_BINARY_URL=https://cdn.netbsd.org/pub/NetBSD/NetBSD-9.4/amd64/binary/sets/
+X86_64_BINARY_URL=https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0_RC4/amd64/binary/sets/
 download base.tar.xz "$X86_64_BINARY_URL/base.tar.xz" "$BASE_SHA_X86_64" \
   tar xJf base.tar.xz -C /x-tools/m68k-unknown-netbsd/sysroot-x86_64 ./usr/include ./usr/lib ./lib
 download comp.tar.xz "$X86_64_BINARY_URL/comp.tar.xz" "$COMP_SHA_X86_64" \
   tar xJf comp.tar.xz -C /x-tools/m68k-unknown-netbsd/sysroot-x86_64 ./usr/include ./usr/lib
 
-M68K_BINARY_URL=https://cdn.netbsd.org/pub/NetBSD/NetBSD-9.4/mac68k/binary/sets/
+M68K_BINARY_URL=https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0_RC4/virt68k/binary/sets/
 download base.tar.xz "$M68K_BINARY_URL/base.tgz" "$BASE_SHA_M68K" \
   tar xzf base.tar.xz -C /x-tools/m68k-unknown-netbsd/sysroot-m68k ./usr/include ./usr/lib ./lib
 download comp.tar.xz "$M68K_BINARY_URL/comp.tgz" "$COMP_SHA_M68K" \
