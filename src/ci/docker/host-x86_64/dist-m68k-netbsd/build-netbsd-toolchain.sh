@@ -71,6 +71,9 @@ download comp.tar.xz "$M68K_BINARY_URL/comp.tgz" "$COMP_SHA_M68K" \
 
 cd usr/src
 
+## disable sandboxing causing build problem
+sed -i -E 's/(CONFIGURE_ARGS\+=	--enable-threads=no --disable-nls)/\1 --disable-sandbox/g' tools/xz-include/Makefile
+
 # The options, in order, do the following
 # * this is an unprivileged build
 # * output to a predictable location
